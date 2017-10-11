@@ -22,9 +22,16 @@ idx = zeros(size(X,1), 1);
 %
 
 
-
-
-
+for i=1:size(X,1) % For every data point
+    D=zeros(K,1);
+    for j=1:K % To find the nearest centroid
+        D(j)=sqrt(sum((X(i,:)-centroids(j,:)).^2));
+        % Please note the dim of data set
+        % Any dim should be correct
+    end
+    [dis,ind]=min(D);
+    idx(i)=ind;
+end
 
 
 % =============================================================
